@@ -120,6 +120,7 @@
 	});
 	$("li").click(function(){
 		styles = $(this).html();
+		address = $("#address").val();
 		getGeocode();
 		closeFunctions();
 	});

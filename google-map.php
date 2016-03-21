@@ -23,7 +23,6 @@
 var geocoder = new google.maps.Geocoder();
 var address;
 if(address == "" || address == "undefined" || typeof(address) == "undefined"){
-	console.log(address);
 	address = "141 Levering Street Philadelphia PA 19127";
 }
 var latitude;
@@ -63,7 +62,6 @@ function geocodeLatLng(lat, long){
 }
 
 function mapStyle(styles) {
-	console.log(styles);
 	if(styles == "" || styles == "undefined" || typeof(styles) == "undefined"){
 		styles = "Default";
 	}
@@ -96,8 +94,13 @@ function mapStyle(styles) {
 	}
 }
 
+
+
 function initGoogleMap() {
-	styles = mapStyle(styles);
+	if(typeof(styles) !== "object"){
+		styles = mapStyle(styles);	
+	}
+	
 	var options = {
 		mapTypeControlOptions: {
 			mapTypeIds: ['Styled']
@@ -113,9 +116,9 @@ function initGoogleMap() {
 	};
 	var div = document.getElementById('googleMap');
 	var map = new google.maps.Map(div, options);
-	marker = new google.maps.Marker({
+	var marker = new google.maps.Marker({
 	    map:map,
-	    draggable:false,
+	    draggable:true,
 	    animation: google.maps.Animation.DROP,
 	    position: new google.maps.LatLng(latitude,longitude)
 	});
@@ -123,9 +126,6 @@ function initGoogleMap() {
 	var styledMapType = new google.maps.StyledMapType(styles, { name: 'Styled' });
 	map.mapTypes.set('Styled', styledMapType);
 	map.set('styles', styles);
-
-	console.log(styledMapType);
-	console.log(map);
 
 	var infowindow = new google.maps.InfoWindow({
 	      content: "<div class='iwContent'>"+address+"</div>"
@@ -146,8 +146,15 @@ function initGoogleMap() {
 	    strokeWeight: 0,
 	    map: map
 	});
+
+	google.maps.event.addListener(marker, 'dragend', function(){
+		console.log(marker.getPosition());
+		geocodeLatLng(marker.getPosition().lat(), marker.getPosition().lng());
+	});
 }
 google.maps.event.addDomListener(window, 'load', getGeocode);
+
+
 //]]>
 
 </script>

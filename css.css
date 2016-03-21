@@ -250,9 +250,11 @@ h1{
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
     font-family: 'Roboto Condensed', sans-serif;
+    font-size:1.7em;
  }
  .expanded-details > h1{
  	margin-top:10%;
+ 	font-size:2em;
  }
 .modal-close{
 	position: fixed;
