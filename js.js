@@ -4,7 +4,7 @@ function adjustColHeight(){
 	var height = $(window).innerHeight();
 	var width = $(window).innerWidth();
 	$(".col").css("height", height / 3 );
-	$(".col").css("width", width / 3 );
+	//$(".col").css("width", width / 3 );
 }
 
 function getWeatherDetail(){

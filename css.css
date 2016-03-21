@@ -1,9 +1,22 @@
 /*Responsiveness*/
+@media only screen and (max-width : 479px) {
+	.container{
+		width:479px;
+		margin: 0 auto;
+		overflow-x: hidden;
+	}
+	.col{
+		width:100%;
+	}
+}
 /* Extra Small Devices, Phones */ 
 @media only screen and (min-width : 480px) {
 	.container{
 		width:400px;
 		margin: 0 auto;
+	}
+	.col{
+		width:100%;
 	}
 }
 /* Small Devices, Tablets -sm*/
@@ -12,12 +25,18 @@
 		width:768px;
 		margin: 0 auto;
 	}
+	.col{
+		width:50%;
+	}
 }
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
 	.container{
 		width:992px;
 		margin: 0 auto;
+	}
+	.col{
+		width:33.3%;
 	}
 }
 /* Large Devices, Wide Screens */
@@ -28,6 +47,9 @@
 	}
 	.container-max{
 		width:100%;
+	}
+	.col{
+		width:33.3%;
 	}
 }
 body{
@@ -104,7 +126,6 @@ h1{
 	top:50%;
 }
 .col{
-	width:33.3%;
 	margin:0;
 	-webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
