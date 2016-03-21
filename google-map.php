@@ -148,7 +148,6 @@ function initGoogleMap() {
 	});
 
 	google.maps.event.addListener(marker, 'dragend', function(){
-		console.log(marker.getPosition());
 		geocodeLatLng(marker.getPosition().lat(), marker.getPosition().lng());
 	});
 }
